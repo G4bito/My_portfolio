@@ -46,7 +46,13 @@ export const projects: Project[] = [
     challenges: [],
     repository: null,
     demo: null,
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/projects/safelink/Safelink-01.png",
+        alt: "SafeLink landing page with the Report. Verify. Respond. heading, incident reporting actions, community statistics, and a safety map preview",
+        caption: "SafeLink landing page",
+      },
+    ],
   },
   {
     id: "motra",

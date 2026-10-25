@@ -49,10 +49,10 @@ Edit `lib/portfolio.ts` to update skills, education, experience, social links, a
 
 - Confirmed university: University of Pangasinan (UPANG). Add the program and study dates when provided.
 - The frontend list reflects this repository. Backend and database details are intentionally pending.
-- SafeLink's overview, stack, and features use owner-supplied information. Its screenshots, public repository, role, problem statement, and development challenges have not been supplied.
+- SafeLink's overview, stack, features, and landing-page screenshot use owner-supplied information. Its public repository, role, problem statement, and development challenges have not been supplied.
 - Motra, YA! PAAYOS, LN by PIYA, and Academic Presentation Designs use only their confirmed names and categories. Add further descriptions, technologies, contributions, and links only when verified.
 - Project `screenshots` accepts an array of `{ src, alt, caption? }`; place real screenshots in `public/` and use public paths such as `/projects/motra/expenses.webp`. The gallery supports native touch scrolling, Left/Right/Home/End keys, and previous/next controls. Mobile projects render screenshots in phone frames and never display a web demo action.
-- The Personal Portfolio gallery uses real browser captures of this site's Home and About pages. The other projects do not yet have supplied screenshots; their previews explicitly state this. No generated app screens or unrelated portraits are presented as screenshots. Each project has a working detail route. Empty case-study sections and unconfigured external actions are omitted.
+- The Personal Portfolio gallery uses real browser captures of this site's Home and About pages. SafeLink uses the owner's actual landing-page screenshot. The other projects do not yet have supplied screenshots; their previews explicitly state this. No generated app screens or unrelated portraits are presented as screenshots. Each project has a working detail route. Empty case-study sections and unconfigured external actions are omitted.
 - Certification entries support title, issuer, completion date, an optional image, and an optional verification URL. The empty state displays until entries are added.
 - Add a LinkedIn URL only when confirmed. Place a resume PDF in `public/`, then set `profile.resume` to its public URL (for example `/resume.pdf`). The download button renders only when that file exists.
 - The education and experience template examples have been replaced with confirmed background and project work. No employers or qualifications have been inferred.
@@ -67,9 +67,9 @@ Run `npm test`, `npm run typecheck`, `npm run lint`, and `npm run build` before 
 
 Set `mockup: "laptop"` or `mockup: "phone"` in `lib/projects.ts`; omit it for the browser preview. Set `featured: true` to give a project its own showcase row. SafeLink uses a laptop, and Motra uses overlapping phones on desktop and a single phone on mobile. When at least two actual screenshots are configured, the rear phone shows the next screenshot. A single screenshot is never duplicated to imply a second screen. The rear phone is decorative for assistive technology; gallery controls select the primary screenshot.
 
-No SafeLink or Motra captures currently exist, and `public/projects/` has not yet been populated. Their device screens explicitly say **Screenshot needed**, with no invented application UI. Add these real captures, then populate the corresponding `screenshots` array:
+SafeLink's screenshot is configured below. Motra and LN by PIYA still have no supplied captures, so their device screens explicitly say **Screenshot needed**, with no invented application UI. Add real captures and populate the corresponding `screenshots` array:
 
-- SafeLink: `public/projects/safelink/desktop-01.webp` (a full desktop screenshot); add further captures for the optional gallery.
+- SafeLink: `public/projects/safelink/Safelink-01.png` (the supplied landing-page screenshot); add further captures for the optional gallery.
 - Motra: `public/projects/motra/screen-01.webp` and `screen-02.webp` (two actual portrait screenshots for the overlapping presentation); more screenshots are supported.
 
 Use public URLs such as `/projects/motra/screen-01.webp` in the data, with descriptive `alt` text and an optional `caption`. PNG and JPEG are also supported. Device frames don't require external libraries, app installation, videos, or live demos. Missing media has no inactive gallery controls. Existing native swipe scrolling, keyboard navigation, previous/next buttons, and reduced-motion preferences are retained.
