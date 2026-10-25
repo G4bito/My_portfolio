@@ -4,10 +4,16 @@ My personal portfolio for UI/UX design and full-stack development.
 
 ## Development
 
+Use Node.js 24.x and npm. `package-lock.json` is the sole dependency lockfile; do not add a pnpm or Yarn lockfile.
+
 ```sh
-npm install
+npm ci
 npm run dev
 ```
+
+Vercel installs dependencies with `npm ci`, configured in `vercel.json`. This performs a clean installation and fails if the npm lockfile and manifest disagree. Keep frozen dependency checks enabled. When intentionally changing a dependency, use npm and commit both `package.json` and `package-lock.json`.
+
+The previous pnpm lockfile specified Next.js `16.1.1` while the manifest required `^16.3.4`, causing Vercel's `ERR_PNPM_OUTDATED_LOCKFILE` installation failure. The npm lockfile already resolves Next.js `16.3.4` and matches the manifest, so application dependency versions are preserved.
 
 ## Checks
 
