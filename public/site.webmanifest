@@ -1,0 +1,16 @@
+{
+  "name": "Zyrel Gabriel Maningding",
+  "short_name": "Zyrel",
+  "description": "Zyrel Gabriel Maningding — UI/UX designer and full-stack developer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f3ee",
+  "theme_color": "#2e5147",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
