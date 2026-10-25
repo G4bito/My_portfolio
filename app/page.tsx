@@ -1,6 +1,7 @@
 import { ContactCard } from "@/components/contact/contact-card";
 import { Hero } from "@/components/hero/hero";
 import { EducationalBackground } from "@/components/about/educational-background";
+import { FeaturedProjects } from "@/components/projects/featured-projects";
 import { createMetadata, siteConfig } from "@/lib/metadata";
 import type { Metadata } from "next";
 
@@ -14,6 +15,7 @@ export default function HomePage() {
     <main id="main-content" className="flex flex-1 flex-col">
       <Hero />
       <EducationalBackground />
+      <FeaturedProjects />
       <ContactCard />
     </main>
   );

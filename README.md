@@ -45,12 +45,14 @@ The visitor email field accepts Gmail addresses only. Invalid formats and other 
 
 ## Portfolio content
 
-Edit `lib/portfolio.ts` to update projects, skills, education, experience, social links, and certifications. The homepage and the existing About and Projects routes share these components and content.
+Edit `lib/portfolio.ts` to update skills, education, experience, social links, and certifications. Project content lives in `lib/projects.ts`; the homepage, `/projects`, and `/projects/[slug]` case studies share that data.
 
 - Confirmed university: University of Pangasinan (UPANG). Add the program and study dates when provided.
 - The frontend list reflects this repository. Backend and database details are intentionally pending.
-- SafeLink is a clearly identified capstone placeholder. Add its description, actual stack, features, contribution, repository, and optional demo when verified.
-- Project `image` accepts `{ src, alt }`; place screenshots in `public/`. The portfolio currently uses the owner's portrait as its thumbnail.
+- SafeLink's overview, stack, and features use owner-supplied information. Its screenshots, public repository, role, problem statement, and development challenges have not been supplied.
+- Motra, YA! PAAYOS, LN by PIYA, and Academic Presentation Designs use only their confirmed names and categories. Add further descriptions, technologies, contributions, and links only when verified.
+- Project `screenshots` accepts an array of `{ src, alt, caption? }`; place real screenshots in `public/` and use public paths such as `/projects/motra/expenses.webp`. The gallery supports native touch scrolling, Left/Right/Home/End keys, and previous/next controls. Mobile projects render screenshots in phone frames and never display a web demo action.
+- The Personal Portfolio gallery uses real browser captures of this site's Home and About pages. The other projects do not yet have supplied screenshots; their previews explicitly state this. No generated app screens or unrelated portraits are presented as screenshots. Each project has a working detail route. Empty case-study sections and unconfigured external actions are omitted.
 - Certification entries support title, issuer, completion date, an optional image, and an optional verification URL. The empty state displays until entries are added.
 - Add a LinkedIn URL only when confirmed. Place a resume PDF in `public/`, then set `profile.resume` to its public URL (for example `/resume.pdf`). The download button renders only when that file exists.
 - The education and experience template examples have been replaced with confirmed background and project work. No employers or qualifications have been inferred.

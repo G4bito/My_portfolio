@@ -37,58 +37,6 @@ export const skillGroups = [
   },
 ];
 
-export type Project = {
-  id: string;
-  title: string;
-  category: string;
-  description: string;
-  technologies: string[];
-  features: string[];
-  role: string | null;
-  repository: string | null;
-  demo: string | null;
-  image: { src: string; alt: string } | null;
-  pending: boolean;
-};
-
-export const projects: Project[] = [
-  {
-    id: "portfolio",
-    title: "Personal Portfolio",
-    category: "Web design & development",
-    description:
-      "A personal space for my work, background, and interests in design and software development. Built on an existing Next.js template and personalized with my own visual identity.",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    features: [
-      "Responsive layouts and a portrait-inspired palette",
-      "Light and dark themes with motion preferences",
-      "Contact form with inline submission feedback",
-    ],
-    role: "Portfolio customization, content, and visual direction.",
-    repository: "https://github.com/G4bito/MY-PORTFOLIO-V2",
-    demo: null,
-    image: {
-      src: "/zyrel-portrait.jpg",
-      alt: "Graduation portrait used in my personal portfolio",
-    },
-    pending: false,
-  },
-  {
-    id: "safelink",
-    title: "SafeLink",
-    category: "Capstone project",
-    description:
-      "A dedicated space for my SafeLink capstone. The project overview, screenshots, technical stack, and contributions will be added here.",
-    technologies: [],
-    features: [],
-    role: null,
-    repository: null,
-    demo: null,
-    image: null,
-    pending: true,
-  },
-];
-
 export type EducationEntry = {
   school: string;
   program: string;

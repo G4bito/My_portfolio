@@ -15,7 +15,7 @@ import {
 
 const NAV_ITEMS = [
   { label: "Home", id: "home" },
-  { label: "Education", id: "education" },
+  { label: "Projects", id: "projects" },
   { label: "Contact", id: "contact" },
 ];
 
@@ -119,7 +119,7 @@ export function Nav(): ReactNode {
           if (entry.isIntersecting) setActiveId(entry.target.id);
         }
       },
-      { rootMargin: "-15% 0px -65% 0px", threshold: 0 }
+      { rootMargin: "-15% 0px -45% 0px", threshold: 0 }
     );
     for (const item of NAV_ITEMS) {
       const section = document.getElementById(item.id);
