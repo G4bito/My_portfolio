@@ -12,6 +12,8 @@ export type Project = {
   category: string;
   description: string;
   platform: "web" | "mobile" | "game" | "presentation";
+  mockup?: "laptop" | "phone";
+  featured?: boolean;
   technologies: string[];
   features: string[];
   role: string | null;
@@ -25,6 +27,8 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "safelink",
+    mockup: "laptop",
+    featured: true,
     title: "SafeLink",
     category: "Community Safety Reporting and Assistance System",
     description:
@@ -46,6 +50,8 @@ export const projects: Project[] = [
   },
   {
     id: "motra",
+    mockup: "phone",
+    featured: true,
     title: "Motra",
     category: "Personal Finance Mobile Application",
     description: "A personal finance application designed for mobile devices.",
@@ -106,6 +112,7 @@ export const projects: Project[] = [
   },
   {
     id: "portfolio",
+    mockup: "laptop",
     title: "Personal Portfolio",
     category: "Web Design & Development",
     description:

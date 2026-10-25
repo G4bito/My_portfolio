@@ -513,11 +513,6 @@
 .project-item-preview .project-screenshot {
   aspect-ratio: auto;
 }
-.project-item-preview .project-phone {
-  height: 100%;
-  width: auto;
-  aspect-ratio: 9 / 19;
-}
 .project-item-preview figcaption {
   display: none;
 }
@@ -626,19 +621,6 @@
   overflow: hidden;
   border-radius: 0.45rem;
   background: var(--background);
-}
-.project-phone {
-  width: min(100%, 250px);
-  margin: 0 auto;
-  padding: 0.5rem;
-  border: 1px solid var(--border);
-  border-radius: 1.8rem;
-  background: var(--muted);
-  box-shadow: 0 8px 24px #00000012;
-}
-.project-phone .project-screenshot {
-  aspect-ratio: 9 / 19;
-  border-radius: 1.3rem;
 }
 .project-gallery-slide figcaption {
   padding: 0.65rem 0.25rem;

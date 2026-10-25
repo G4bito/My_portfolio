@@ -67,7 +67,10 @@ export default async function ProjectPage({ params }: Props) {
             <ProjectGallery
               title={project.title}
               screenshots={project.screenshots}
-              mobile={project.platform === "mobile"}
+              device={
+                project.mockup ??
+                (project.platform === "mobile" ? "phone" : "browser")
+              }
             />
           </div>
         </div>

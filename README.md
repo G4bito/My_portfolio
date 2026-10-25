@@ -60,3 +60,16 @@ Edit `lib/portfolio.ts` to update skills, education, experience, social links, a
 Navigation links target homepage sections; standalone `/about` and `/projects` pages remain available. Reveal effects, smooth scrolling, the interactive stack, and shader animation respect reduced-motion preferences. The existing contact form and Gmail-only validation are preserved. Provider activation is required before live delivery can be confirmed.
 
 Run `npm test`, `npm run typecheck`, `npm run lint`, and `npm run build` before publishing. No live test messages are sent by the test suite.
+
+## Project device mockups
+
+`LaptopMockup` and `PhoneMockup` are reusable CSS device frames with Next.js images. Screenshots use `object-fit: contain` inside the screen, so portrait and landscape captures retain their original proportions. Physical bezels, speaker, camera, and laptop base sit outside the screenshot area.
+
+Set `mockup: "laptop"` or `mockup: "phone"` in `lib/projects.ts`; omit it for the browser preview. Set `featured: true` to give a project its own showcase row. SafeLink uses a laptop, and Motra uses overlapping phones on desktop and a single phone on mobile. When at least two actual screenshots are configured, the rear phone shows the next screenshot. A single screenshot is never duplicated to imply a second screen. The rear phone is decorative for assistive technology; gallery controls select the primary screenshot.
+
+No SafeLink or Motra captures currently exist, and `public/projects/` has not yet been populated. Their device screens explicitly say **Screenshot needed**, with no invented application UI. Add these real captures, then populate the corresponding `screenshots` array:
+
+- SafeLink: `public/projects/safelink/desktop-01.webp` (a full desktop screenshot); add further captures for the optional gallery.
+- Motra: `public/projects/motra/screen-01.webp` and `screen-02.webp` (two actual portrait screenshots for the overlapping presentation); more screenshots are supported.
+
+Use public URLs such as `/projects/motra/screen-01.webp` in the data, with descriptive `alt` text and an optional `caption`. PNG and JPEG are also supported. Device frames don't require external libraries, app installation, videos, or live demos. Missing media has no inactive gallery controls. Existing native swipe scrolling, keyboard navigation, previous/next buttons, and reduced-motion preferences are retained.

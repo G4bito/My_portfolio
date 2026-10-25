@@ -5,23 +5,80 @@ import { ChevronLeft, ChevronRight, ImageIcon } from "lucide-react";
 import { useId, useRef, useState } from "react";
 import type { ProjectScreenshot } from "@/lib/projects";
 import { useReducedMotion } from "@/lib/motion";
+import { getCompanionScreenshot } from "@/lib/project-gallery";
+import { LaptopMockup } from "./laptop-mockup";
+import { PhoneMockup } from "./phone-mockup";
+import styles from "./device-mockups.module.css";
 
 export function ProjectGallery({
   title,
   screenshots,
-  mobile = false,
+  device = "browser",
+  compact = false,
 }: {
   title: string;
   screenshots: ProjectScreenshot[];
-  mobile?: boolean;
+  device?: "laptop" | "phone" | "browser";
+  compact?: boolean;
 }) {
   const track = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const reducedMotion = useReducedMotion();
   const id = useId();
+
+  function renderDevice(
+    screenshot: ProjectScreenshot | undefined,
+    index: number
+  ) {
+    if (device === "laptop")
+      return <LaptopMockup title={title} screenshot={screenshot} />;
+    if (device === "phone") {
+      const companion = getCompanionScreenshot(screenshots, index);
+      const paired = companion || screenshots.length === 0;
+      return (
+        <div
+          className={`${styles.phoneStage} ${paired ? styles.phoneStagePaired : ""}`}
+        >
+          {paired && (
+            <div className={styles.secondaryPhone}>
+              <PhoneMockup title={title} screenshot={companion} decorative />
+            </div>
+          )}
+          <div className={styles.primaryPhone}>
+            <PhoneMockup title={title} screenshot={screenshot} />
+          </div>
+        </div>
+      );
+    }
+    return screenshot ? (
+      <div className="project-browser">
+        <div className="project-screenshot">
+          <Image
+            src={screenshot.src}
+            alt={screenshot.alt}
+            fill
+            sizes="(min-width: 1024px) 600px, 90vw"
+            className="object-contain"
+          />
+        </div>
+      </div>
+    ) : null;
+  }
+
+  const galleryClassName = `project-gallery ${device !== "browser" ? styles.deviceGallery : ""} ${compact ? styles.compact : ""}`;
   if (!screenshots.length) {
+    if (device !== "browser")
+      return (
+        <div
+          className={galleryClassName}
+          role="group"
+          aria-label={`${title} device preview. Screenshots needed.`}
+        >
+          {renderDevice(undefined, 0)}
+        </div>
+      );
     return (
-      <div className={`project-preview-empty ${mobile ? "is-mobile" : ""}`}>
+      <div className="project-preview-empty">
         <ImageIcon size={28} strokeWidth={1.25} aria-hidden="true" />
         <span>{title}</span>
         <p>Project screenshots haven’t been shared yet.</p>
@@ -42,7 +99,7 @@ export function ProjectGallery({
       role="region"
       aria-roledescription="carousel"
       aria-label={`${title} screenshots`}
-      className={`project-gallery ${mobile ? "is-mobile" : ""}`}
+      className={galleryClassName}
     >
       <div
         ref={track}
@@ -74,19 +131,9 @@ export function ProjectGallery({
             role="group"
             aria-roledescription="slide"
             aria-label={`${index + 1} of ${screenshots.length}`}
-            className="project-gallery-slide"
+            className={`project-gallery-slide ${device !== "browser" ? styles.deviceSlide : ""}`}
           >
-            <div className={mobile ? "project-phone" : "project-browser"}>
-              <div className="project-screenshot">
-                <Image
-                  src={screenshot.src}
-                  alt={screenshot.alt}
-                  fill
-                  sizes={mobile ? "280px" : "(min-width: 1024px) 600px, 90vw"}
-                  className="object-contain"
-                />
-              </div>
-            </div>
+            {renderDevice(screenshot, index)}
             {screenshot.caption && (
               <figcaption>{screenshot.caption}</figcaption>
             )}

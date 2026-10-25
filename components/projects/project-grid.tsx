@@ -7,7 +7,7 @@ export function ProjectGrid() {
   return (
     <div className="projects-grid">
       {projects
-        .filter((project) => project.id !== "safelink")
+        .filter((project) => !project.featured)
         .map((project, index) => (
           <FadeIn
             key={project.id}
@@ -22,7 +22,11 @@ export function ProjectGrid() {
                 <ProjectGallery
                   title={project.title}
                   screenshots={project.screenshots}
-                  mobile={project.platform === "mobile"}
+                  device={
+                    project.mockup ??
+                    (project.platform === "mobile" ? "phone" : "browser")
+                  }
+                  compact
                 />
               </div>
               <div className="project-item-content">
