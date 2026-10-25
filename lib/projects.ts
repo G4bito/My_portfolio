@@ -83,6 +83,7 @@ export const projects: Project[] = [
   {
     id: "ln-by-piya",
     mockup: "laptop",
+    featured: true,
     title: "LN by PIYA",
     category: "Nail Services Website",
     description: "A website for the LN by PIYA nail services brand.",
